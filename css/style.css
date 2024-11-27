@@ -1,0 +1,535 @@
+/******************************** General ***************************************/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+:root {
+    --main-color: #0065FC;
+    --main-bg-color: #F2F2F2;
+    --filter-bg-color: #DEEBFF;
+}
+
+.fa-solid {
+    color: var(--main-color);
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1440px;
+    min-width: 1025px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+/*********************************************************************************
+                                    Partie Header                                  
+*********************************************************************************/                                    
+
+
+/* Mise en ligne de tout nos éléments Logo + navigation */
+header {
+    display: flex; /* Utilise Flexbox pour aligner les éléments enfants (logo et liens de navigation) en ligne */
+    justify-content: space-between; /* Distribue l'espace disponible entre les éléments, plaçant le logo à gauche et la navigation à droite */
+    margin: 30px 0 50px 0; /* Ajoute des marges de 30px en haut, 0 sur les côtés, et 50px en bas du header */
+}
+
+/* Gestion de la taille du logo Booki*/
+.logo {
+    width: 62px; /* Définit une largeur fixe de 62px pour le logo */
+    height: 19px; /* Définit une hauteur fixe de 19px pour le logo */
+    margin-top: -15px; /* Remonte le logo de 15px vers le haut, créant un léger chevauchement avec les éléments au-dessus */
+}
+
+/* Permet de remonter mes liens sur la partie haute de la page */
+.navigation {
+    position: relative; /* Définit la position de l'élément comme relative pour pouvoir ajuster sa position par rapport à sa position normale */
+    bottom: 30px; /* Descend les liens de navigation de 30px vers le bas, compensant la marge du header */
+}
+
+/* Va permettre de mettre nos liens en noir, une taille et un espacement entre eux */
+.navigation a {
+    color: black; /* Définit la couleur du texte des liens à noir */
+    font-style: normal; /* Applique un style de police normal*/
+    font-weight: 400; /* Définit la grosseur de la police à 400 */
+    font-size: 16px; /* Définit la taille de la police à 16px */
+    text-decoration: none; /* Supprime le soulignement par défaut des liens */
+    margin: 0 35px 5px 0; /* Ajoute une marge de 0 en haut, 35px à droite, 5px en bas, et 0 à gauche pour espacer les liens */
+    padding-top: 5px; /* Ajoute un espace de 5px en haut des liens, créant un espace supplémentaire */
+}
+
+/* Ajoute une bordure bleue en haut du lien et change la couleur du texte au survol */
+.navigation a:hover {
+    border-top: 2px solid var(--main-color); /* Ajoute une bordure supérieure de 2px de couleur principale au survol */
+    color: var(--main-color); /* Change la couleur du texte au survol à la couleur principale */
+}
+
+
+/********************************************************************************
+                            Partie formulaire de recherche
+*********************************************************************************/
+/* Conteneur du formulaire */
+.formulaire {
+    display: flex; /* Utilise Flexbox pour disposer les éléments enfants en ligne */
+    align-items: center; /* Aligne verticalement les éléments enfants au centre */
+    gap: 16px; /* Réduit l'espace entre l'icône et l'input */
+    width: 377px; /* Ajuste la largeur totale du formulaire si nécessaire */
+    height: 49px; /* Définit une hauteur fixe pour le conteneur du formulaire */
+    border: solid 1px var(--main-bg-color); /* Ajoute une bordure solide d'une couleur de fond principale */
+    border-radius: 15px; /* Arrondit les coins du conteneur */
+    overflow: hidden; /* Cache tout débordement d'éléments enfants */
+}
+
+/* Icône dans le formulaire */
+.formulaire .fa-solid {
+    display: inline-block; /* Permet de gérer l'icône comme un élément en ligne */
+    text-align: center; /* Centre le contenu à l'intérieur de l'icône */
+    width: 70px; /* Définit une largeur fixe pour l'icône */
+    height: 100%; /* Fait en sorte que l'icône prenne toute la hauteur du conteneur */
+    padding: 0; /* Supprime les paddings internes de l'icône */
+    background-color: var(--main-bg-color); /* Définit la couleur de fond de l'icône */
+    border-top-left-radius: 15px; /* Arrondit le coin supérieur gauche de l'icône */
+    border-bottom-left-radius: 15px; /* Arrondit le coin inférieur gauche de l'icône */
+    color: black; /* Définit la couleur de l'icône à noir */
+    line-height: 49px; /* Centre l'icône verticalement dans son conteneur */
+}
+
+/* Champ de recherche */
+.formulaire input {
+    flex: 1; /* Permet à l'input de prendre tout l'espace restant dans le conteneur */
+    min-width: 140px; /* Définit une largeur minimale pour l'input */
+    max-width: 240px; /* Ajuste la largeur maximale de l'input */
+    height: 49px; /* Assure que la hauteur de l'input correspond à celle du conteneur */
+    font-weight: 700; /* Définit la grosseur de la police à 700 (gras) */
+    font-size: 15px; /* Définit la taille de la police à 15px */
+    line-height: 21px; /* Définit la hauteur de ligne pour le texte à l'intérieur de l'input */
+    text-align: center; /* Centre le texte à l'intérieur de l'input */
+    border: none; /* Supprime la bordure par défaut de l'input */
+    outline: none; /* Supprime le contour lorsque l'input est sélectionné */
+    box-sizing: border-box; /* Inclut le padding dans la largeur et la hauteur */
+}
+
+/* Bouton du formulaire */
+.formulaire .bouton {
+    display: inline-block; /* Permet de gérer le bouton comme un élément en ligne */
+    width: 150px; /* Définit une largeur fixe pour le bouton */
+    height: 49px; /* Assure que le bouton prend toute la hauteur du conteneur */
+    background-color: var(--main-color); /* Définit la couleur de fond du bouton */
+    color: var(--main-bg-color); /* Définit la couleur du texte du bouton à la couleur de fond principale */
+    border: none; /* Supprime la bordure par défaut du bouton */
+    border-radius: 0 15px 15px 0; /* Arrondit les coins à droite uniquement */
+    font-weight: 700; /* Définit la grosseur de la police à 700 (gras) */
+    font-size: 15px; /* Définit la taille de la police à 15px */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    padding: 0; /* Supprime les paddings internes du bouton */
+    line-height: 49px; /* Centre le texte verticalement dans le bouton */
+}
+
+
+/***************************************************************************************
+                                    Partie Filtre                                       
+****************************************************************************************/                                    
+
+/* Styles pour le conteneur principal des filtres */
+.filtres-container {
+    display: flex; /* Utilise Flexbox pour organiser les éléments enfants en ligne */
+    align-items: center; /* Centre les éléments enfants verticalement dans le conteneur */
+    gap: 20px; /* Ajoute un espacement de 20px entre le titre et les filtres */
+    margin: 30px 0px 15px 0px; /* Définit des marges de 30px en haut et en bas, et 0px à gauche et à droite */
+}
+
+/* Styles pour le conteneur des liens de filtres */
+.filtres {
+    display: flex; /* Utilise Flexbox pour aligner les liens de filtres horizontalement */
+    gap: 15px; /* Ajoute un espace de 15px entre chaque lien */
+}
+
+/* Styles pour les liens à l'intérieur du conteneur des filtres */
+.filtres a {
+    display: flex; /* Utilise Flexbox pour aligner le contenu du lien (icône et texte) */
+    align-items: center; /* Centre verticalement le contenu à l'intérieur du lien */
+    justify-content: center; /* Centre horizontalement le contenu à l'intérieur du lien */
+    gap: 8px; /* Ajoute un espace de 8px entre l'icône et le texte */
+    width: 165px; /* Définit une largeur fixe de 165px pour chaque lien */
+    height: 38px; /* Définit une hauteur fixe de 38px pour chaque lien */
+    border: 1px solid var(--filter-bg-color); /* Ajoute une bordure d'un pixel avec une couleur définie par une variable CSS */
+    border-radius: 25px; /* Arrondit les coins du lien pour donner un effet de bouton */
+    font-weight: bold; /* Met le texte en gras */
+    color: black; 
+}
+
+/* Styles pour les icônes à l'intérieur des liens */
+.filtres a i {
+    color: var(--main-color); /* Définit la couleur des icônes à une couleur principale définie par une variable CSS */
+}
+
+/* Styles pour le titre dans le conteneur des filtres */
+.filtres-container h2 {
+    font-style: normal; /* Définit le style de police à normal (non italique) */
+    font-weight: 700; /* Définit la grosseur de la police à 700 (gras) */
+    font-size: 16px; /* Définit la taille de la police à 16px */
+    line-height: 21px; /* Définit la hauteur de ligne à 21px pour un meilleur espacement vertical */
+    text-align: center; /* Centre le texte horizontalement */
+    margin: 0; /* Supprime les marges par défaut autour du titre */
+}
+
+/* Effet de survol pour les liens */
+.filtres a:hover {
+    background-color: var(--filter-bg-color); /* Change la couleur de fond du lien lors du survol avec la souris */
+}
+
+
+/*********************************************************************************
+                             Zone infos                           
+********************************************************************************/
+
+
+/* Styles pour le conteneur des informations */
+.infos {
+    display: flex; /* Utilise Flexbox pour aligner les éléments enfants (icônes et texte) en ligne */
+    align-items: center; /* Centre verticalement les éléments enfants dans le conteneur */
+    gap: 10px; /* Ajoute un espacement de 10px entre chaque élément enfant */
+    margin-bottom: 15px; /* Ajouteun marge sur le bas de 15px*/
+}
+
+/* Styles pour les icônes à l'intérieur du conteneur des informations */
+.infos i {
+    font-size: 14px; /* Définit la taille de la police à 14px pour l'icône */
+    width: 20px; /* Définit une largeur fixe de 20px pour l'icône */
+    height: 20px; /* Définit une hauteur fixe de 20px pour l'icône */
+    border-radius: 50%; /* Arrondit complètement les coins pour créer une forme circulaire */
+    border: solid 1px #D9D9D9; /* Ajoute une bordure solide d'un pixel de couleur gris clair (#D9D9D9) */
+    text-align: center; /* Centre le contenu (texte ou icône) horizontalement à l'intérieur de l'élément */
+    line-height: 1.2em; /* Définit la hauteur de ligne pour ajuster l'espacement vertical du contenu */
+    color: var(--main-color); /* Définit la couleur de l'icône */
+}
+
+
+/*********************************************************************************
+                                Zone Hebergement Marseille                      
+*********************************************************************************/
+/* Définir la largeur du conteneur principal de la section d'hébergements */
+.hebergements { width: 65%; }
+
+/* Positionnement et retour à la ligne des articles dans la section hébergements */
+.hebergements-cards { 
+    display: flex; /* Utilise flexbox pour aligner les cartes horizontalement */
+    flex-wrap: wrap; /* Permet aux cartes de revenir à la ligne si nécessaire */
+    justify-content: space-between; /* Crée un espacement égal entre chaque carte */
+}
+
+/* Styles appliqués à chaque carte d'hébergement */
+.hebergements-cards .card-article {
+    margin-top: 33px; /* Ajoute un espacement vertical entre les cartes */
+    width: 30%; /* Définit la largeur de chaque carte pour un alignement en grille */
+}
+
+/* Styles visuels des cartes */
+.card-article {
+    background-color: white; /* Fond blanc pour chaque carte */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 5px; /* Ajoute un espacement interne */
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1)); /* Ombre douce autour des cartes */
+    font-size: 16px; /* Taille de police du texte à l'intérieur des cartes */
+}
+
+/* Styles de liens pour enlever la décoration et fixer la couleur */
+.card-article a {
+    text-decoration: none; /* Retire la ligne sous les liens */
+    color: black; /* Fixe la couleur du texte en noir */
+}
+
+/* Styles des images des cartes */
+.hebergements-cards img {
+    width: 100%; /* Adapte l'image à la largeur de la carte */
+    height: 124px; /* Fixe une hauteur constante */
+    border-top-left-radius: 20px; /* Coin arrondi en haut à gauche */
+    border-top-right-radius: 20px; /* Coin arrondi en haut à droite */
+    object-fit: cover; /* Adapte l'image pour remplir l'espace de manière esthétique */
+}
+
+/* Espacement à gauche du contenu de la carte */
+.card-content {
+    padding-left: 15px; /* Ajoute un espace à gauche du texte */
+}
+
+/* Espacement autour du titre */
+.card-content h3 {
+    margin: 5px 0 10px 0; /* Ajoute un espace en haut et en bas du titre */
+}
+
+/* Espacement sous le paragraphe */
+.card-content p {
+    margin: 0 0 10px 0; /* Ajoute un espace sous le paragraphe */
+}
+
+/* Styles pour les liens*/
+.lien{
+    text-decoration: none; /* Retire la décoration sous les liens */
+    color: black; /* Couleur du texte en noir */
+    font-weight: 700; /* Met le texte en gras */
+    font-size: 18px; /* Taille de police légèrement plus grande */
+    line-height: 21px; /* Ajuste la hauteur de ligne pour un meilleur espacement */
+    padding-top: 30px; /* Ajoute un espace en haut du texte */
+}
+
+
+/******************************************************************************************
+                                partie  activites Marseille                                 
+*******************************************************************************************/
+
+/* Style pour la section des activités */
+.activites {
+    width: 95%; /* Définit la largeur de la section à 95% de l'écran*/
+    margin: auto; /* Centre la section horizontalement */
+    margin-bottom: 75px;/*Espace en bas de la section pour séparer des autres éléments*/
+}
+
+/* Conteneur flexible pour les articles d'activités */
+.flex-activ {
+    display: flex; /* Utilise Flexbox pour aligner les articles en ligne*/
+    justify-content: space-between; /*Espace les articles uniformément sur la largeur disponible */
+    gap: 10px; /*Permet d'ajouter un espacement de 10px entre chaque articles */
+    flex-wrap: nowrap; /* Permet au article de rester en ligne a 1025px*/
+}
+
+/* Style pour chaque article d'activité */
+.marseille-activites {
+    background-color: white; /* Couleur de fond blanche pour chaque article */
+    border-radius: 20px; /* Arrondit les coins de chaque article */
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1)); /* Ajoute une ombre subtile autour de l'article */
+    font-size: 16px;  /* Taille de police de base pour le contenu */
+}
+
+/* Style pour les liens à l'intérieur des articles */
+.marseille-activites a {
+    text-decoration: none; /* Retire la décoration par défaut du lien (soulignement) */
+    color: black;  /* Définit la couleur du texte en noir */
+}
+
+/* Style pour le titre de chaque article d'activité */
+.marseille-activites a h3 {
+    padding-left: 10px; /*Ajoute un espace sur la gauche pour décaler le texte du bord */
+}
+
+/* Style pour les images à l'intérieur des articles d'activités */
+.flex-activ img {
+    object-fit: cover; /* Maintient les proportions des images et les ajuste au conteneur */
+    width: 297.5px; /* Définit la largeur de l'image */
+    height: 380px; /* Définit la hauteur de l'image */
+    max-width: 100%; /*Empéche mon image de dépasser la largeur de son conteneur*/
+    border-radius: 20px 20px 0px 0px; /* Arrondit le haut de l'image pour correspondre au conteneur */
+}
+/******************************************************************************************
+                                Footer                                                      
+******************************************************************************************/
+/*Style conteneur footer*/
+footer{
+    margin-top: 25px;/*Ajoute un espace au dessus du footer pour le séparer du contenu précédent*/
+    display: flex;/*Utilise Flexbox pour aligner les articles en ligne*/
+    flex-direction: row;/*Permet de disposez les élements horizontalement*/
+    justify-content: space-around;/* Permet la distribution égale entre les sections*/
+    background-color: var(--main-bg-color); /*Défini une couleur de fond*/
+    padding: 20px; /*Permet de mettre en place un espacement de 20px*/
+}
+
+/*Style pour chaque section individuelle du footer*/
+.lien-footer {
+    display: flex;/*Utilise Flexbox pour aligner les articles en ligne*/
+    flex-direction: column; /*Permet d'aligner les éléments titre et lien verticalement*/
+    text-align: start; /*Aligne le texte à gaughe*/
+    width: 33.33%; /*Définit une largeur égale à chaque section (1/3 du footer)*/
+    padding-left: 6px; /*Ajoute un léger décalage à gauche pour plus d'aération*/
+}
+
+/*Style des liens dans chaque section Footer*/
+.lien-footer a{
+    text-decoration: none; /*Retire la ligne qui souligne tous mes liens*/
+    color: black; /*Défini une couleur noire pou les liens*/
+    font-style: normal; /*Définit un style de texte normal ( non italique, ni oblique)*/
+    font-weight: 400;/*Définit la grosseur de mon texte*/
+    font-size: 16px;/*Défini la taille de ma police en px*/
+    line-height: 2;  /*Ajoute un espacement verticale entre les liens pour améliorer la lisibilité*/
+}
+
+
+
+
+
+
+.card img {
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.euro {
+    font-weight: 700;
+}
+
+/*stylisation de la derniére étoile */
+.neutral-star {
+    color: var(--main-bg-color);/*Permet de mettre la derniére étoile de couleur grise*/ 
+}
+
+/****** Hebergements And Populaires ***********/
+.hebergements-and-populaires {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hebergements-and-populaires section {
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/****** Populaires ***********/
+.populaires {
+    width: 32%;
+}
+
+.populaires-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.populaires-cards .card {
+    display: flex;
+    margin-top: 33px;
+}
+
+.populaires-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.populaires-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.populaires-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.populaires-cards .card-subtitle {
+    margin: 0;
+}
+
+.populaires-cards .card-rating {
+    margin-bottom: 5px;
+}
+
+
+
+
+/* Le code ci-dessous correspond à la version responsive uniquement */
+
+/****** Media queries ***********/
+@media (max-width: 1025px){
+
+.card-title{
+    font-size: 13.5px; /*Permet d'ajuster la taille de mes titre dans les Cards lors du changement de taille en 1025px*/
+}
+
+p {
+    font-size: 13px;
+}
+
+.populaires-cards .card-content{ /*Permet d'ajuster le padding pour l'ajuter des titres dans la section populaires*/
+ padding-left: 3px;
+}
+
+.populaires{
+    padding: 10.5px !important; /*Permet d'ajuster le padding de la section pour l'ajustement des titres*/
+}
+.marseille-activites a h3 {
+    font-size: 14px; /* Réduit la taille des titres pour s'adapter à l'écran en 1025px */
+    gap: 4%;
+    
+}
+
+
+}
+
+
+
+
+
+
+
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (max-width: 1024px) {
+    .hebergements-and-populaires {
+        flex-direction: column;
+    }
+
+    .hebergements {
+        width: 100%;
+    }
+
+    .populaires {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .populaires-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .populaires-cards a {
+        width: 30%;
+    }
+
+    .populaires-cards .card-title {
+        font-size: 14px;
+    }
+
+    .populaires-cards .card-subtitle {
+        font-size: 13px;
+    }
+}
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767.98px) {
+    /* ... */
+}
